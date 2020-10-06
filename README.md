@@ -14,7 +14,7 @@
 
 
 ## Contributor: 
-GitHub Profile: 
+GitHub Profile: https://github.com/Veron-star/googlebooksearch
 
 ## Heroku:
 Link: 
