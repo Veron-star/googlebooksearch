@@ -22,7 +22,13 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks")
+const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017";
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useFindAndModify: false
+}).catch(err => {
+  console.log(Error, err.message);
+}).then(() => console.log(`DB connected - ${mongoUri}`))
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
